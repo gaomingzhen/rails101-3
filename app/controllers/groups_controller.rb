@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    @groups = @groups.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
